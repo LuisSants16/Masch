@@ -1,0 +1,168 @@
+/* ====== HEADER GENERAL ====== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 20px 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: rgb(255, 255, 255);
+  padding: 10px 0; /* más pequeño al hacer scroll */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header.scrolled .logo {
+  color: #f04e30;
+}
+
+.header.scrolled .nav a {
+  color: #111;
+}
+
+.header.scrolled .nav a:hover,
+.header.scrolled .nav a.active {
+  color: #f04e30;
+}
+
+.container-header {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* ====== LOGO ====== */
+.logo {
+  font-weight: 900;
+  font-size: 35px;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* ====== NAV (ESCRITORIO) ====== */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a.active,
+.nav a:hover {
+  color: #f04e30;
+}
+
+/* ====== BOTÓN HAMBURGUESA (BOOTSTRAP ICON) ====== */
+.hamburger-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+  transition: color 0.3s ease;
+}
+
+.header.scrolled .hamburger-btn {
+  color: #ff3c1a; /* hamburguesa negra cuando el fondo es blanco */
+}
+
+/* ====== CONTENEDOR DEL NAV CON ANIMACIÓN ====== */
+.nav-wrapper {
+  max-height: none;
+  overflow: visible;
+  transition: max-height 0.5s ease;
+}
+
+/* Clase activa para mostrar el menú */
+.nav-wrapper.show {
+  max-height: 500px; /* ajusta según el contenido */
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: block;
+  }
+  
+  .header .nav-wrapper.show .nav a {
+    color: #111;
+  }
+
+  .header .nav-wrapper.show .nav a:hover,
+  .header .nav-wrapper.show .nav a.active {
+    color: #f04e30;
+  }
+
+  .nav-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    width: 100%;
+    background-color: white; /* Cambiado de negro a blanco */
+    position: absolute;
+    top: 100%; /* Antes posiblemente estaba en top: 80px */
+    left: 0;
+    z-index: 998;
+  }
+
+  .nav-wrapper.show {
+    max-height: 500px;
+  }
+
+  .nav-wrapper .nav a {
+    color: white;
+  }
+
+  .nav-wrapper .nav a:hover,
+  .nav-wrapper .nav a.active {
+    color: #f04e30;
+  }
+
+  .header.scrolled .nav-wrapper {
+    background-color: #000; /* mantenlo negro también si lo prefieres */
+  }
+
+  .header.scrolled .nav-wrapper .nav a {
+    color: white;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    margin: 0;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .nav a {
+    color: #111;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    color: #f04e30;
+  }
+}
