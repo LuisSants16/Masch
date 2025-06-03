@@ -11,7 +11,7 @@ hamburger.addEventListener("click", () => {
   }
 });
 
-document.querySelectorAll("#nav a").forEach(link => {
+document.querySelectorAll("#nav a").forEach((link) => {
   link.addEventListener("click", () => {
     navWrapper.classList.remove("show");
     icon.classList.replace("bi-x-lg", "bi-list");
@@ -29,3 +29,23 @@ window.addEventListener("scroll", () => {
     header.classList.remove("scrolled");
   }
 });
+
+//slider - servicios
+
+  const slider = document.getElementById("servicesTrack");
+  const totalItems = slider.children.length;
+  const visibleItems = 3;
+  let index = 0;
+
+  function slideForward() {
+    index++;
+    if (index > totalItems - visibleItems) {
+      index = 0;
+    }
+    const card = slider.children[0];
+    const gap = 30;
+    const offset = card.offsetWidth * index + gap * index;
+    slider.style.transform = `translateX(-${offset}px)`;
+  }
+
+  setInterval(slideForward, 4000); // Cambia cada 4 segundos

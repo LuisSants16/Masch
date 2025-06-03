@@ -19,7 +19,6 @@
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .about-left img {
@@ -83,7 +82,8 @@
   background-color: #d73c1f;
 }
 
-/* BENEFICIOS */
+/* ======= SECCIÓN SOBRE MÍ - BENEIFICOS ======= */
+
 .about-benefits {
   max-width: 1250px;
   margin: 40px auto 0;
@@ -134,7 +134,122 @@
   color: #555;
 }
 
-/* RESPONSIVE */
+/* ======= SERVICIOS ======= */
+.simple-services {
+  background-color: #f7f6f6;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.services-header .subtitle {
+  text-transform: uppercase;
+  color: #f04e30;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.services-header h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.services-header .description {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-item {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  line-height: 25px;
+}
+
+.service-item:hover {
+  background-color: #f04e30;
+  color: white;
+}
+
+.service-item:hover h3,
+.service-item:hover p,
+.service-item:hover i {
+  color: white;
+}
+
+.service-item i {
+  font-size: 36px;
+  color: #f04e30;
+  margin-bottom: 15px;
+  display: inline-block;
+  transition: transform 0.6s ease, color 0.3s ease;
+}
+
+.service-item:hover i {
+  transform: rotate(360deg);
+  color: white;
+}
+
+.service-item h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+.service-item p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.btn-servicio {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 6px 25px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 50px;
+  border: 2px solid #f04e30;
+  background-color: #f04e30;
+  color: white;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-servicio:hover{
+  text-decoration: underline;
+}
+
+.service-item:hover .btn-servicio {
+  background-color: white;
+  color: #f04e30;
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -161,5 +276,9 @@
 
   .benefit-icon {
     margin-bottom: 10px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
   }
 }
