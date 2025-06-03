@@ -30,22 +30,14 @@ window.addEventListener("scroll", () => {
   }
 });
 
-//slider - servicios
+// galeria css grid
 
-  const slider = document.getElementById("servicesTrack");
-  const totalItems = slider.children.length;
-  const visibleItems = 3;
-  let index = 0;
-
-  function slideForward() {
-    index++;
-    if (index > totalItems - visibleItems) {
-      index = 0;
-    }
-    const card = slider.children[0];
-    const gap = 30;
-    const offset = card.offsetWidth * index + gap * index;
-    slider.style.transform = `translateX(-${offset}px)`;
-  }
-
-  setInterval(slideForward, 4000); // Cambia cada 4 segundos
+  window.addEventListener('load', () => {
+    const grid = document.querySelector('.masonry-grid');
+    new Masonry(grid, {
+      itemSelector: '.gallery-item',
+      columnWidth: '.grid-sizer',
+      gutter: 0,
+      percentPosition: true
+    });
+  });
