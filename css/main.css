@@ -296,15 +296,38 @@
 
 /* ======= GALERIA ======= */
 
-.gallery-section {
-  padding: 80px 20px;
-  background: #fefefe;
+.filter-buttons {
   text-align: center;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  border: none;
+  background: #eee;
+  color: #111;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background-color: #f04e30;
+  color: white;
+}
+
+.filter-gallery {
+  padding: 80px 20px;
 }
 
 .gallery-header {
   max-width: 1250px;
   margin: 0 auto 40px;
+  text-align: center;
+  padding: 0 20px;
 }
 
 .gallery-header .subtitle {
@@ -312,58 +335,232 @@
   color: #f04e30;
   font-weight: 600;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   letter-spacing: 1px;
 }
 
 .gallery-header h2 {
   font-size: 32px;
-  margin-bottom: 10px;
+  font-weight: 800;
+  margin-bottom: 12px;
   color: #111;
 }
 
 .gallery-header .description {
-  font-size: 15px;
-  color: #666;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
 }
 
-/* Masonry container */
-.masonry-grid {
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0;
   max-width: 1250px;
   margin: 0 auto;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Tamaño base */
-.grid-sizer {
-  width: 33.3333%;
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.gallery-item {
-  width: 33.3333%;
-  float: left;
-  padding: 8px;
-  box-sizing: border-box;
+.grid-item.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
 
-.gallery-item img {
+.grid-item.hidden {
+  display: none !important;
+}
+
+.grid-item.hide {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+.grid-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .overlay {
+  opacity: 1;
+}
+
+.grid-item .overlay span {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+.grid-item img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
   display: block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+.grid-item:hover img {
+  transform: scale(1.2);
 }
 
-.gallery-item img:hover {
-  transform: scale(1.03);
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeIn 0.3s forwards ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.modal-content {
+  background: #fff;
+  max-width: 900px;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+.modal-content img {
+  max-width: 400px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.modal-info {
+  flex: 1;
+  text-align: left;
+  padding: 5px 10px;
+}
+
+.modal-info h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.modal-info .type {
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.modal-info p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  transition: color 2s ease;
+}
+.modal-close:hover {
+  color: #f04e30;
+}
+
+.solicitar-btn {
+  margin-top: 20px;
+  padding: 10px 18px;
+  background-color: #f04e30;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+.solicitar-btn:hover {
+  background-color: #d53d22;
 }
 
 @media (max-width: 900px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .about-grid {
+    grid-template-columns: 1fr; /* apila imagen + texto */
+    gap: 30px;
   }
+
+  .about-left {
+    text-align: center;
+  }
+
+  .about-left img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .about-thumbnails {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .about-thumbnails img {
+    width: 100px;
+    height: auto;
+  }
+
+  .about-benefits {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .benefit-item {
+    flex: 100px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .benefit-icon {
+    margin-bottom: 10px;
+  }
+}
+.services-grid {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media (max-width: 768px) {
@@ -373,10 +570,25 @@
 
   .about-right {
     text-align: center;
+    padding: 0;
   }
 
   .about-thumbnails {
-    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .about-thumbnails img{
+    width: 100%;
+  }
+
+  .about-left img {
+    max-width: 100%;
+  }
+
+  .about-btn {
+    width: 100%;
+    text-align: center;
   }
 
   .about-benefits {
@@ -396,5 +608,50 @@
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+  .grid-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-content img {
+    max-width: 100%;
+  }
+
+  .modal-info {
+    text-align: center;
+    padding: 0;
+  }
+
+  .filter-buttons {
+    display: none;
+  }
+
+  .grid-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 15px;
+    padding: 10px 0;
+  }
+
+  .grid-item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    border-radius: 10px;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
   }
 }

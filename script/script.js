@@ -30,14 +30,142 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// galeria css grid
+// galeria
 
-  window.addEventListener('load', () => {
-    const grid = document.querySelector('.masonry-grid');
-    new Masonry(grid, {
-      itemSelector: '.gallery-item',
-      columnWidth: '.grid-sizer',
-      gutter: 0,
-      percentPosition: true
+const items = document.querySelectorAll(".grid-item");
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+const modalTitle = document.getElementById("modal-title");
+const modalType = document.getElementById("modal-type");
+const modalDescription = document.getElementById("modal-description");
+const modalClose = document.querySelector(".modal-close");
+
+items.forEach((item) => {
+  item.addEventListener("click", () => {
+    modal.style.display = "flex";
+    document.body.classList.add("modal-open");
+    modalImg.src = item.querySelector("img").src;
+    modalTitle.textContent = item.dataset.title;
+    modalType.textContent = item.dataset.type;
+    modalDescription.textContent = item.dataset.description;
+  });
+});
+modalClose.addEventListener("click", () => {
+  modal.style.display = "none";
+  document.body.classList.remove("modal-open");
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.style.display === "flex") {
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+  }
+});
+
+//galeria - animacion cambio de imagenes
+
+document.querySelectorAll(".filter-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    const filter = button.getAttribute("data-filter");
+    const allButtons = document.querySelectorAll(".filter-btn");
+    const items = document.querySelectorAll(".grid-item");
+
+    // activar clase active
+    allButtons.forEach((b) => b.classList.remove("active"));
+    button.classList.add("active");
+
+    items.forEach((item) => {
+      const type = item.getAttribute("data-type");
+      const match = filter === "all" || type === filter;
+
+      if (!match) {
+        item.classList.add("fade-out");
+        setTimeout(() => item.classList.add("hidden"), 300);
+      } else {
+        item.classList.remove("hidden");
+        setTimeout(() => item.classList.remove("fade-out"), 10);
+      }
     });
   });
+});
+
+// Slider automático solo en pantallas pequeñas
+
+// Slider automático solo en pantallas pequeñas
+let sliderInterval; // global
+
+if (window.innerWidth <= 768) {
+  const slider = document.querySelector('.grid-gallery');
+  let scrollAmount = 0;
+  let isUserScrolling = false;
+
+  function startSlider() {
+    if (sliderInterval) return; // Evita múltiples intervalos
+    sliderInterval = setInterval(() => {
+      scrollAmount += slider.clientWidth;
+      if (scrollAmount >= slider.scrollWidth) {
+        scrollAmount = 0;
+      }
+      slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+    }, 3000);
+  }
+
+  function stopSlider() {
+    clearInterval(sliderInterval);
+    sliderInterval = null;
+  }
+
+  startSlider(); // iniciar al cargar
+
+  // Pausar si el usuario desliza manualmente
+  slider.addEventListener("touchstart", () => {
+    isUserScrolling = true;
+    stopSlider();
+  });
+
+  slider.addEventListener("mousedown", () => {
+    isUserScrolling = true;
+    stopSlider();
+  });
+
+  // Reanudar después de 5 segundos
+  slider.addEventListener("touchend", () => {
+    if (isUserScrolling) {
+      setTimeout(() => {
+        startSlider();
+        isUserScrolling = false;
+      }, 5000);
+    }
+  });
+
+  slider.addEventListener("mouseup", () => {
+    if (isUserScrolling) {
+      setTimeout(() => {
+        startSlider();
+        isUserScrolling = false;
+      }, 5000);
+    }
+  });
+
+  // Pausar al abrir modal
+  document.querySelectorAll(".grid-item").forEach(item => {
+    item.addEventListener("click", () => {
+      stopSlider();
+    });
+  });
+
+  // Reanudar al cerrar modal
+  const modal = document.getElementById("modal");
+  const closeModalBtn = document.querySelector(".modal-close");
+
+  closeModalBtn.addEventListener("click", () => {
+    startSlider();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      startSlider();
+    }
+  });
+}
+

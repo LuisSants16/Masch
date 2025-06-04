@@ -210,32 +210,166 @@
         </div>
       </section>
 
-      <section class="gallery-section">
+      <section class="filter-gallery">
         <div class="gallery-header">
-          <p class="subtitle">GALERÍA</p>
-          <h2>Mis Trabajos Realizados</h2>
+          <p class="subtitle">PROYECTOS</p>
+          <h2>Trabajos que me enorgullecen</h2>
           <p class="description">
-            Una selección visual de mis mejores proyectos. Cada imagen
-            representa calidad y compromiso.
+            Puedes filtrar por tipo de proyecto para ver distintos acabados,
+            instalaciones o remodelaciones que he realizado.
           </p>
         </div>
 
-        <div class="masonry-grid">
-          <div class="grid-sizer"></div>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">
+            Mostrar Todo
+          </button>
+          <button class="filter-btn" data-filter="Cocina">Cocina</button>
+          <button class="filter-btn" data-filter="Ceramica">Ceramica</button>
+          <button class="filter-btn" data-filter="Baño">Baño</button>
+        </div>
 
-          <div class="gallery-item"><img src="./img/img01.jpg" alt="" /></div>
-          <div class="gallery-item"><img src="./img/img02.jpg" alt="" /></div>
-          <div class="gallery-item"><img src="./img/img03.jpg" alt="" /></div>
-          <div class="gallery-item"><img src="./img/img04.jpg" alt="" /></div>
-          <div class="gallery-item"><img src="./img/img05.jpg" alt="" /></div>
-          <div class="gallery-item"><img src="./img/img06.jpg" alt="" /></div>
-          <div class="gallery-item"><img src="./img/img07.jpg" alt="" /></div>
-          <div class="gallery-item"><img src="./img/img08.jpg" alt="" /></div>
+        <div class="grid-gallery">
+          <div
+            class="grid-item"
+            data-title="Cocina Moderna en Melamina Rojo Brillante"
+            data-type="Cocina"
+            data-description="Cocina empotrada con muebles altos y bajos en melamina de acabado rojo brillante, equipada con campana extractora de acero inoxidable, tablero de granito y doble poza. La decoración incluye cenefas cerámicas con diseño geométrico y detalles circulares, combinando estética y practicidad."
+          >
+            <img src="./img/img01.jpg" alt="" />
+            <div class="overlay">
+              <span>Cocina Melamina Rojo Brillante</span>
+            </div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Muro Decorativo con Iluminación LED Empotrada"
+            data-type="Ceramica"
+            data-description="Pared revestida con cerámico tridimensional tipo mosaico en tonos beige y marrón, iluminada con luces LED empotradas en el cielo raso. Aporta profundidad visual y modernidad al ambiente, ideal para salas, recibidores o corredores amplios."
+          >
+            <img src="./img/img02.jpg" alt="" />
+            <div class="overlay"><span>Muro Decorativo Iluminado</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Lavamanos de Vidrio Templado sobre Tablero Flotante"
+            data-type="Baño"
+            data-description="Lavamanos tipo bowl fabricado en vidrio templado color verde agua, instalado sobre un tablero flotante negro brillante. Acompañado de grifería cromada moderna y revestimiento cerámico en blanco con líneas y detalles en azul celeste, ideal para baños contemporáneos."
+          >
+            <img src="./img/img03.jpg" alt="" />
+            <div class="overlay"><span>Lavamanos Vidrio Verde Agua</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Sala-Comedor con Diseño Abierto y Cálido"
+            data-type="Ceramica"
+            data-description="Ambientes integrados de sala y comedor con mobiliario en tonos marrones y beige, acentuado con cojines color mostaza. Piso de porcelanato blanco brillante, iluminación LED en techo y paredes decoradas con cerámico de textura natural, ideal para una convivencia acogedora."
+          >
+            <img src="./img/img04.jpg" alt="" />
+            <div class="overlay"><span>Sala y Comedor Integrados</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Lavadero de Ropa de Cemento Pulido con Enchape Cerámico"
+            data-type="Ceramica"
+            data-description="Lavadero de ropa hecho en concreto pulido y revestido con cerámico gris mate. Incluye poza principal y área auxiliar con espacio de almacenamiento. Su diseño moderno se adapta a lavanderías pequeñas o medianas con estética minimalista."
+          >
+            <img src="./img/img05.jpg" alt="" />
+            <div class="overlay"><span>Lavadero de Cemento Pulido</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Piso Cerámico con Diseño Tipo Madera Entrelazada"
+            data-type="Ceramica"
+            data-description="Piso revestido con cerámico que simula listones de madera dispuestos en un patrón geométrico entrelazado. Combina tonos claros y oscuros para brindar profundidad y calidez al ambiente, ideal para habitaciones o salones."
+          >
+            <img src="./img/img06.jpg" alt="" />
+            <div class="overlay"><span>Piso Cerámico Madera</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Techo con Diseño de Iluminación LED Geométrica"
+            data-type="Cocina"
+            data-description="Cielo raso con diseño en niveles y tiras LED empotradas en forma rectangular, aportando un efecto flotante. Ideal para cocinas o salas modernas que buscan una iluminación ambiental elegante y tecnológica."
+          >
+            <img src="./img/img07.jpg" alt="" />
+            <div class="overlay"><span>Iluminación LED en Techo</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Barra Desayunadora en Mármol Marrón con Diseño Integral"
+            data-type="Cocina"
+            data-description="Barra fabricada en mármol marrón con vetas blancas, de diseño en “L” con recubrimiento total. Ideal como área de servicio o desayunador en cocinas abiertas, aporta lujo y robustez al ambiente."
+          >
+            <img src="./img/img08.jpg" alt="" />
+            <div class="overlay"><span>Barra de Mármol Marrón</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Mueble de Baño con Tablero Laminado Efecto Acuarela"
+            data-type="Baño"
+            data-description="Mueble bajo de melamina blanca con cajones y tablero de superficie en acabado tipo acuarela en tonos azules y verdes. Incluye lavamanos tipo bowl cerámico y grifería moderna. Perfecto para baños con personalidad artística."
+          >
+            <img src="./img/img09.jpg" alt="" />
+            <div class="overlay"><span>Mueble de Baño Artístico</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Baño Moderno con Lavamanos Flotante y Ducha Empotrada"
+            data-type="Baño"
+            data-description="Baño revestido con cerámicos en tonos beige, con detalles tipo piedra en la zona de la ducha. Lavamanos rectangular sobre repisa flotante y sanitario de una sola pieza. Un diseño sobrio, cálido y moderno para baños principales o de visitas."
+          >
+            <img src="./img/img10.jpg" alt="" />
+            <div class="overlay"><span>Baño Beige Moderno</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Cocina Contemporánea con Acentos Verdes y Mosaicos Vítreos"
+            data-type="Cocina"
+            data-description="Cocina en forma de “L” con mobiliario blanco de acabado brillante, cubierta de granito oscuro y detalles decorativos en tonos verdes. Las paredes están revestidas con cerámica blanca y verde manzana, complementadas por una franja de mosaicos vítreos en degradado. Un muro de bloques de vidrio permite el paso de luz natural, aportando amplitud al ambiente."
+          >
+            <img src="./img/img11.jpg" alt="" />
+            <div class="overlay"><span>Cocina con Verde Manzana</span></div>
+          </div>
+
+          <div
+            class="grid-item"
+            data-title="Lavamanos Tipo Flor sobre Tablero Suspendido de Concreto"
+            data-type="Baño"
+            data-description="Lavamanos de cerámica blanca con forma curva tipo pétalo, instalado sobre un tablero flotante revestido en porcelanato gris. El fondo presenta cerámico blanco con relieve tridimensional de ondas. Este diseño combina minimalismo y sofisticación, ideal para baños pequeños que buscan destacar con una pieza central escultural."
+          >
+            <img src="./img/img12.jpg" alt="" />
+            <div class="overlay"><span>Lavamanos Curvo Minimalista</span></div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img id="modal-img" src="" alt="" />
+            <div class="modal-info">
+              <h3 id="modal-title"></h3>
+              <p id="modal-type" class="type"></p>
+              <p id="modal-description"></p>
+              <button class="solicitar-btn">Solicitar</button>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <script src="./script/script.js"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   </body>
 </html>
