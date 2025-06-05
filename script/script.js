@@ -284,18 +284,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //footer - slider trabajos recientes
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const sliderImg = document.getElementById("galeria-slider");
-    const galeriaFotos = [
-      "./img/img01.jpg",
-      "./img/img02.jpg",
-      "./img/img03.jpg",
-      "./img/img04.jpg"
-    ];
-    let current = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  const sliderImg = document.getElementById("galeria-slider");
+  const galeriaFotos = [
+    "./img/img01.jpg",
+    "./img/img02.jpg",
+    "./img/img03.jpg",
+    "./img/img04.jpg",
+  ];
+  let current = 0;
 
-    setInterval(() => {
-      current = (current + 1) % galeriaFotos.length;
-      sliderImg.src = galeriaFotos[current];
-    }, 4000);
-  });
+  setInterval(() => {
+    current = (current + 1) % galeriaFotos.length;
+    sliderImg.src = galeriaFotos[current];
+  }, 4000);
+});
+
+//mensaje - formulario
+function enviarFormulario(formulario) {
+  setTimeout(() => {
+    const mensaje = document.getElementById("mensajeConfirmacion");
+    mensaje.style.display = "block";
+    formulario.reset();
+
+    // Ocultar el mensaje luego de 5 segundos
+    setTimeout(() => {
+      mensaje.style.display = "none";
+    }, 5000);
+  }, 500);
+  return true;
+}
