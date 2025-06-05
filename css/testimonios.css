@@ -176,4 +176,8 @@
   .testimonial-name {
     margin-top: 10px;
   }
+
+  .testimonial-description{
+    font-size: 12px;
+  }
 }

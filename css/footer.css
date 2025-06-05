@@ -84,11 +84,12 @@
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 6px;
+  color: #ff2600;
 }
 
 .contact-info i {
   margin-right: 6px;
-  color: #f04e30;
+  color: #aa1d05;
 }
 
 .social-icons {
@@ -264,12 +265,11 @@
   }
 
   .contact-description {
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 20px;
   }
 
-  .contact-info p,
-  .contact-sub {
+  .contact-info p{
     font-size: 14px;
   }
 
