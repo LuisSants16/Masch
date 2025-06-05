@@ -276,9 +276,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSlide(index);
 
-  // AUTOPLAY cada 5 segundos
   setInterval(() => {
     index = (index + 1) % items.length;
     showSlide(index);
   }, 5000);
 });
+
+//footer - slider trabajos recientes
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const sliderImg = document.getElementById("galeria-slider");
+    const galeriaFotos = [
+      "./img/img01.jpg",
+      "./img/img02.jpg",
+      "./img/img03.jpg",
+      "./img/img04.jpg"
+    ];
+    let current = 0;
+
+    setInterval(() => {
+      current = (current + 1) % galeriaFotos.length;
+      sliderImg.src = galeriaFotos[current];
+    }, 4000);
+  });

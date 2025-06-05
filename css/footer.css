@@ -107,6 +107,144 @@
   color: #ca2f13;
 }
 
+/* ========= FOOTER GENERAL ========= */
+.footer-section {
+  background: #111;
+  color: #ccc;
+  padding: 60px 20px 30px;
+  font-family: sans-serif;
+}
+
+.footer-grid {
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-column {
+  min-height: 180px;
+}
+
+.footer-title {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* ========= SOBRE MÍ ========= */
+.footer-column p {
+  max-width: 280px;
+  line-height: 25px;
+}
+
+.footer-button {
+  background: #f04e30;
+  padding: 10px 16px;
+  color: white;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ========= ENLACES ========= */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ca2f13;
+}
+
+/* ========= ÚLTIMAS PUBLICACIONES ========= */
+.latest-posts-grid {
+  display: grid;
+  height: 100%;
+}
+
+.latest-post-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.latest-post-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.post-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-title {
+  font-size: 14px;
+  color: #eee;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 4px;
+}
+
+.post-date span {
+  color: #8bc34a;
+  font-weight: bold;
+}
+
+/* ========= SLIDER GALERÍA ========= */
+.footer-slider {
+  width: 100%;
+  max-width: 240px;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.footer-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+/* ========= CRÉDITOS / PIE DE PÁGINA ========= */
+.footer-bottom {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 13px;
+  color: #888;
+}
+
+.footer-bottom hr{
+    margin: 20px 0;
+    border: 1px rgba(255, 255, 255, 0.089) solid;
+}
+
 @media (max-width: 768px) {
   .contact-section {
     padding: 10px;
@@ -138,9 +276,66 @@
   .social-icons {
     justify-content: center;
     font-size: 18px;
+    margin: 20px 0;
   }
 
   .contact-form button {
     width: 100%;
+  }
+
+  .footer-section {
+    padding: 40px 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .footer-column {
+    min-height: unset;
+  }
+
+  .footer-column p,
+  .footer-links
+  {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 12px;
+  }
+
+  .post-title,.post-date{
+    color: bisque;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .footer-button {
+    display: inline-block;
+    margin: 20px auto 0;
+  }
+
+  .latest-post-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .latest-post-item img{
+    width: 250px;
+    min-height: 200px;
+  }
+
+  .footer-slider {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .footer-slider img {
+    height: auto;
+  }
+
+  .footer-bottom{
+    margin-top: 40px;
   }
 }
