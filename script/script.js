@@ -95,7 +95,7 @@ document.querySelectorAll(".filter-btn").forEach((button) => {
 let sliderInterval; // global
 
 if (window.innerWidth <= 768) {
-  const slider = document.querySelector('.grid-gallery');
+  const slider = document.querySelector(".grid-gallery");
   let scrollAmount = 0;
   let isUserScrolling = false;
 
@@ -106,7 +106,7 @@ if (window.innerWidth <= 768) {
       if (scrollAmount >= slider.scrollWidth) {
         scrollAmount = 0;
       }
-      slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+      slider.scrollTo({ left: scrollAmount, behavior: "smooth" });
     }, 3000);
   }
 
@@ -148,7 +148,7 @@ if (window.innerWidth <= 768) {
   });
 
   // Pausar al abrir modal
-  document.querySelectorAll(".grid-item").forEach(item => {
+  document.querySelectorAll(".grid-item").forEach((item) => {
     item.addEventListener("click", () => {
       stopSlider();
     });
@@ -169,3 +169,116 @@ if (window.innerWidth <= 768) {
   });
 }
 
+// Testimonios
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.querySelector(".testimonials-slider");
+  const totalSlides = slider.children.length;
+  const dotsContainer = document.querySelector(".dots-container");
+  const prevBtn = document.querySelector(".prev-slide");
+  const nextBtn = document.querySelector(".next-slide");
+  let currentSlide = 0;
+  let interval;
+
+  // Crear puntos
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.dataset.index = i;
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = document.querySelectorAll(".dot");
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((dot) => dot.classList.remove("active"));
+    dots[currentSlide].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+  }
+
+  function prevSlideFunc() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlideFunc();
+    resetInterval();
+  });
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", (e) => {
+      currentSlide = parseInt(e.target.dataset.index);
+      updateSlider();
+      resetInterval();
+    });
+  });
+
+  function startInterval() {
+    interval = setInterval(nextSlide, 4000);
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    startInterval();
+  }
+
+  // Pausar slider al pasar el mouse
+  const sliderWrapper = document.querySelector(".slider-wrapper");
+  sliderWrapper.addEventListener("mouseenter", () => clearInterval(interval));
+  sliderWrapper.addEventListener("mouseleave", () => startInterval());
+
+  updateSlider();
+  startInterval();
+});
+
+// Testimonios
+
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".testimonial-item");
+  const dotsContainer = document.getElementById("testimonialDots");
+
+  let index = 0;
+
+  // Crear puntos dinámicamente
+  items.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".testimonial-dots .dot");
+
+  function showSlide(i) {
+    items.forEach((item, idx) => {
+      item.classList.toggle("active", idx === i);
+      dots[idx].classList.toggle("active", idx === i);
+    });
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      index = i;
+      showSlide(index);
+    });
+  });
+
+  showSlide(index);
+
+  // AUTOPLAY cada 5 segundos
+  setInterval(() => {
+    index = (index + 1) % items.length;
+    showSlide(index);
+  }, 5000);
+});

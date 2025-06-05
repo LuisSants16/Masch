@@ -34,7 +34,7 @@
 }
 
 .about-tag {
-  color: #00a676;
+  color: #f04e30;
   font-weight: 600;
   margin-bottom: 10px;
   font-size: 14px;
@@ -517,9 +517,51 @@
   background-color: #d53d22;
 }
 
+/* seccion CTA */
+
+.cta-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../img/cta-section_bg.jpg) center/cover no-repeat;
+    background-attachment: fixed;
+  padding: 80px 20px;
+  color: white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.cta-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background-color: #f04e30;
+  color: white;
+  padding: 12px 28px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #d63d24;
+}
+
 @media (max-width: 900px) {
   .about-grid {
-    grid-template-columns: 1fr; /* apila imagen + texto */
+    grid-template-columns: 1fr;
     gap: 30px;
   }
 
@@ -558,9 +600,10 @@
   .benefit-icon {
     margin-bottom: 10px;
   }
-}
-.services-grid {
-  grid-template-columns: repeat(2, 1fr);
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -578,7 +621,7 @@
     padding: 0;
   }
 
-  .about-thumbnails img{
+  .about-thumbnails img {
     width: 100%;
   }
 
@@ -653,5 +696,23 @@
     height: auto;
     object-fit: contain;
     border-radius: 10px;
+  }
+
+  .cta-section {
+    padding: 60px 15px;
+    background-position: center;
+  }
+
+  .cta-content h2 {
+    font-size: 26px;
+  }
+
+  .cta-content p {
+    font-size: 16px;
+  }
+
+  .cta-btn {
+    padding: 10px 24px;
+    font-size: 15px;
   }
 }
