@@ -67,6 +67,18 @@
   color: #f04e30;
 }
 
+.nav-link {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.nav-link.active {
+  color: #e74c3c; /* rojo-anaranjado */
+  font-weight: bold;
+}
+
 /* ====== BOTÓN HAMBURGUESA (BOOTSTRAP ICON) ====== */
 .hamburger-btn {
   background: none;

@@ -1,9 +1,9 @@
 :root {
-  --color-principal: #f04e30; /* Rojo anaranjado */
-  --color-principal-hover: #ca2f13; /* Más oscuro al hacer hover */
-  --color-fondo: #f7f6f6; /* Fondo claro general */
-  --color-texto: #111; /* Texto principal */
-  --color-secundario: #555; /* Texto secundario */
+  --color-principal: #f04e30;
+  --color-principal-hover: #ca2f13;
+  --color-fondo: #f7f6f6;
+  --color-texto: #111;
+  --color-secundario: #555;
   --color-blanco: #ffffff;
 }
 
@@ -11,6 +11,10 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 body {

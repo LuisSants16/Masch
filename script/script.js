@@ -18,8 +18,6 @@ document.querySelectorAll("#nav a").forEach((link) => {
   });
 });
 
-// scroll
-
 const header = document.getElementById("header");
 
 window.addEventListener("scroll", () => {
@@ -29,8 +27,6 @@ window.addEventListener("scroll", () => {
     header.classList.remove("scrolled");
   }
 });
-
-// galeria
 
 const items = document.querySelectorAll(".grid-item");
 const modal = document.getElementById("modal");
@@ -62,15 +58,12 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-//galeria - animacion cambio de imagenes
-
 document.querySelectorAll(".filter-btn").forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.getAttribute("data-filter");
     const allButtons = document.querySelectorAll(".filter-btn");
     const items = document.querySelectorAll(".grid-item");
 
-    // activar clase active
     allButtons.forEach((b) => b.classList.remove("active"));
     button.classList.add("active");
 
@@ -89,10 +82,7 @@ document.querySelectorAll(".filter-btn").forEach((button) => {
   });
 });
 
-// Slider automático solo en pantallas pequeñas
-
-// Slider automático solo en pantallas pequeñas
-let sliderInterval; // global
+let sliderInterval;
 
 if (window.innerWidth <= 768) {
   const slider = document.querySelector(".grid-gallery");
@@ -100,7 +90,7 @@ if (window.innerWidth <= 768) {
   let isUserScrolling = false;
 
   function startSlider() {
-    if (sliderInterval) return; // Evita múltiples intervalos
+    if (sliderInterval) return;
     sliderInterval = setInterval(() => {
       scrollAmount += slider.clientWidth;
       if (scrollAmount >= slider.scrollWidth) {
@@ -115,9 +105,8 @@ if (window.innerWidth <= 768) {
     sliderInterval = null;
   }
 
-  startSlider(); // iniciar al cargar
+  startSlider();
 
-  // Pausar si el usuario desliza manualmente
   slider.addEventListener("touchstart", () => {
     isUserScrolling = true;
     stopSlider();
@@ -128,7 +117,6 @@ if (window.innerWidth <= 768) {
     stopSlider();
   });
 
-  // Reanudar después de 5 segundos
   slider.addEventListener("touchend", () => {
     if (isUserScrolling) {
       setTimeout(() => {
@@ -147,14 +135,12 @@ if (window.innerWidth <= 768) {
     }
   });
 
-  // Pausar al abrir modal
   document.querySelectorAll(".grid-item").forEach((item) => {
     item.addEventListener("click", () => {
       stopSlider();
     });
   });
 
-  // Reanudar al cerrar modal
   const modal = document.getElementById("modal");
   const closeModalBtn = document.querySelector(".modal-close");
 
@@ -169,7 +155,6 @@ if (window.innerWidth <= 768) {
   });
 }
 
-// Testimonios
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".testimonials-slider");
   const totalSlides = slider.children.length;
@@ -233,7 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
     startInterval();
   }
 
-  // Pausar slider al pasar el mouse
   const sliderWrapper = document.querySelector(".slider-wrapper");
   sliderWrapper.addEventListener("mouseenter", () => clearInterval(interval));
   sliderWrapper.addEventListener("mouseleave", () => startInterval());
@@ -242,15 +226,12 @@ document.addEventListener("DOMContentLoaded", () => {
   startInterval();
 });
 
-// Testimonios
-
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".testimonial-item");
   const dotsContainer = document.getElementById("testimonialDots");
 
   let index = 0;
 
-  // Crear puntos dinámicamente
   items.forEach((_, i) => {
     const dot = document.createElement("span");
     dot.classList.add("dot");
@@ -282,8 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 5000);
 });
 
-//footer - slider trabajos recientes
-
 document.addEventListener("DOMContentLoaded", function () {
   const sliderImg = document.getElementById("galeria-slider");
   const galeriaFotos = [
@@ -300,17 +279,46 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 4000);
 });
 
-//mensaje - formulario
 function enviarFormulario(formulario) {
   setTimeout(() => {
     const mensaje = document.getElementById("mensajeConfirmacion");
     mensaje.style.display = "block";
     formulario.reset();
 
-    // Ocultar el mensaje luego de 5 segundos
     setTimeout(() => {
       mensaje.style.display = "none";
     }, 5000);
   }, 500);
   return true;
 }
+
+document.querySelectorAll('.nav-link[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+const navLinks = [...document.querySelectorAll('.nav-link[href^="#"]')];
+const targets = navLinks
+  .map(l => document.querySelector(l.getAttribute('href')))
+  .filter(Boolean);
+
+const activateLink = (id) => {
+  navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
+};
+
+const io = new IntersectionObserver((entries) => {
+  const visible = entries
+    .filter(en => en.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+  if (visible) activateLink(visible.target.id);
+}, {
+  root: null,
+  rootMargin: '-120px 0px -50% 0px',
+  threshold: [0.25, 0.5, 0.75]
+});
+
+targets.forEach(el => io.observe(el));
