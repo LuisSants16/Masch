@@ -23,17 +23,18 @@ El objetivo es mostrar su experiencia, generar confianza y facilitar la comunica
 
 ## 🧩 Estructura del proyecto  
 
-📂 **Raíz del proyecto**
+📁 **Raíz del proyecto**  
 
-📁 index.html → Página principal
-📁 servicios.html → Lista de servicios
-📁 galeria.html → Galería de trabajos
-📁 blog.html → Publicaciones y consejos
-📁 contacto.html → Formulario de contacto
+📂 **index.html** → Página principal  
+📂 **servicios.html** → Lista de servicios  
+📂 **galeria.html** → Galería de trabajos  
+📂 **blog.html** → Publicaciones y consejos  
+📂 **contacto.html** → Formulario de contacto  
 
-📄 css/ → Archivos de estilos (.css)
-📄 js/ → Archivos de scripts (.js)
-📸 img/ → Imágenes y fotos de trabajos
+🗂️ **css/** → Archivos de estilos (.css)  
+⚙️ **js/** → Archivos de scripts (.js)  
+📸 **img/** → Imágenes y fotos de trabajos  
+
 
 ---
 
