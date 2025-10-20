@@ -17,25 +17,8 @@ El objetivo es mostrar su experiencia, generar confianza y facilitar la comunica
 - **CSS3** → estilos y animaciones  
 - **JavaScript** → efectos y funcionalidad básica  
 - **Diseño responsive** → adaptable a móviles y escritorio  
-- **Botón de WhatsApp** → contacto rápido y directo  
-
----
-
-## 🧩 Estructura del proyecto  
-
-📁 **Raíz del proyecto**  
-
-📂 **index.html** → Página principal  
-📂 **servicios.html** → Lista de servicios  
-📂 **galeria.html** → Galería de trabajos  
-📂 **blog.html** → Publicaciones y consejos  
-📂 **contacto.html** → Formulario de contacto  
-
-🗂️ **css/** → Archivos de estilos (.css)  
-⚙️ **js/** → Archivos de scripts (.js)  
-📸 **img/** → Imágenes y fotos de trabajos  
-
-
+- **Botón de WhatsApp** → contacto rápido y directo
+  
 ---
 
 ## ✨ Secciones principales  
