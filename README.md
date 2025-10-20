@@ -1,73 +1,68 @@
-💬 Descripción
+# 🧱 MASCH – Acabados y Remodelaciones Profesionales  
+🌐 [Ver sitio web](https://luissants16.github.io/Masch)
 
-MASCH es una página web profesional creada para Miguel Ángel Santos Chinchón, especialista en acabados y remodelaciones.
-Presenta sus servicios, trabajos realizados, y ofrece un medio de contacto directo para clientes interesados.
+---
+
+## 📝 Descripción  
+**MASCH** es una página web profesional creada para **Miguel Ángel Santos Chinchón**, especialista en acabados y remodelaciones.  
+Presenta sus servicios, trabajos realizados y ofrece un medio de contacto directo para clientes interesados.  
 
 El objetivo es mostrar su experiencia, generar confianza y facilitar la comunicación con nuevos clientes.
 
-🛠️ Tecnologías
+---
 
-HTML5 – estructura del sitio
+## 🛠️ Tecnologías utilizadas  
 
-CSS3 – estilos y animaciones
+- **HTML5** → estructura del sitio  
+- **CSS3** → estilos y animaciones  
+- **JavaScript** → efectos y funcionalidad básica  
+- **Diseño responsive** → adaptable a móviles y escritorio  
+- **Botón de WhatsApp** → contacto rápido y directo  
 
-JavaScript – efectos y funcionalidad básica
+---
 
-Diseño responsive, adaptable a móviles y escritorio
+## 🧩 Estructura del proyecto  
+📁 Raíz del proyecto
+│
+├── index.html → Página principal
+├── servicios.html → Lista de servicios
+├── galeria.html → Galería de trabajos
+├── blog.html → Publicaciones y consejos
+├── contacto.html → Formulario de contacto
+│
+├── css/ → Archivos de estilos (.css)
+├── js/ → Archivos de scripts (.js)
+└── img/ → Imágenes y fotos de trabajos
 
-Botón de WhatsApp para contacto rápido
+---
 
-🧩 Estructura del proyecto
-/ (raíz)
-├── index.html          → Página principal  
-├── servicios.html      → Lista de servicios  
-├── galeria.html        → Galería de trabajos  
-├── blog.html           → Publicaciones y consejos  
-├── contacto.html       → Formulario de contacto  
-├── css/                → Estilos (archivos .css)  
-├── js/                 → Scripts (archivos .js)  
-└── img/                → Imágenes y fotos de trabajos  
+## ✨ Secciones principales  
 
-✨ Secciones principales
+- **Inicio:** Presentación general y resumen de servicios  
+- **Sobre mí:** Breve biografía profesional  
+- **Servicios:** Enchapado, pintura, gasfitería, carpintería, techado, drywall, pisos  
+- **Galería:** Proyectos realizados, con filtros por tipo de trabajo  
+- **Testimonios:** Opiniones de clientes satisfechos  
+- **Blog:** Consejos y publicaciones sobre construcción y mantenimiento  
+- **Contacto:** Formulario + acceso a WhatsApp  
 
-Inicio: Presentación general y resumen de servicios
+---
 
-Sobre mí: Breve biografía profesional
+## 🎨 Diseño  
+El diseño busca transmitir **profesionalismo, limpieza visual y confianza**.  
+Resalta las imágenes de los trabajos y facilita la navegación en cualquier dispositivo.
 
-Servicios: Acabados, gasfitería, pintura, carpintería, techado y más
+---
 
-Galería: Muestra de proyectos con filtro por tipo de trabajo
+## 🚀 Próximas mejoras  
 
-Testimonios: Opiniones de clientes satisfechos
+- Optimizar imágenes para mayor velocidad  
+- Mejorar SEO (metaetiquetas y previsualización)  
+- Agregar sección “Antes y Después”  
+- Implementar modo oscuro  
 
-Blog: Artículos sobre construcción, mantenimiento y consejos
+---
 
-Contacto: Formulario + acceso directo por WhatsApp
-
-🎨 Diseño
-
-El diseño está enfocado en:
-
-Transmitir profesionalismo y confianza
-
-Usar colores sobrios y modernos
-
-Dar protagonismo a las imágenes de los trabajos reales
-
-Mantener una navegación simple y fluida
-
-🚀 Próximas mejoras
-
-Optimizar imágenes para carga más rápida
-
-Mejorar SEO (meta etiquetas y previsualización)
-
-Agregar sección “Antes y Después”
-
-Implementar modo oscuro
-
-Añadir un sistema de comentarios o reseñas
-
-📄 Licencia
-
-Proyecto de uso personal y profesional – © 2025 Miguel Ángel Santos Chinchón
+## 📄 Licencia  
+Proyecto personal de presentación profesional  
+© 2025 **Miguel Ángel Santos Chinchón**
